@@ -1,0 +1,50 @@
+<div class="container">
+
+<%= form_for @livro, html:{multipart: true} do |f| %>
+ 
+  <% if @livro.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@livro.errors.count, "error") %> 
+          O Livro não pode ser adicionado
+      </h2>
+      <ul>
+        <% @livro.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :Titulo %><br>
+    <%= f.text_field :titulo, class:"form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :Autor %><br>
+    <%= f.text_field :autor, class:"form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :Capa %><br>
+    <%= f.file_field :capa, class:"form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :Sinopse %><br>
+    <%= f.text_area :sinopse, class:"form-control" %>
+  </p>
+ 
+  <p>
+    <%= f.label :Estante %><br>
+    <%= f.text_field :estante, class:"form-control" %>
+  </p>
+ 
+  <p>
+    <%= f.submit :Salvar, class:"btn btn-success" %>
+  </p>
+ 
+<% end %>
+
+</div>

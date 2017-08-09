@@ -1,0 +1,30 @@
+<%= nav_bar brand: "Livros" %>
+
+<div class="container">
+ 
+<table class="table table-bordered">
+  <tr>
+    <th>Título</th>
+    <th>Autor</th>
+    <th>Sinopse</th>
+    <th>Capa</th>
+    <th>Estante</th>
+  </tr>
+ 
+  <% @livros.each do |livro| %>
+    <tr>
+      <td><%= livro.titulo %></td>
+      <td><%= livro.autor %></td>
+      <td><%= livro.sinopse %></td>
+      <td><%= image_tag livro.capa.url(:thumb) %></td>
+      <td><%= livro.estante %></td>
+      <td><%= link_to 'Editar', edit_livro_path(livro), class: "btn btn-warning" %></td>
+      <td><%= link_to 'Remover', livro_path(livro), class: "btn btn-danger", method: :delete,
+                                                       data:{confirm: "Tem certeza"} %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Adicionar Livro", new_livro_path, class:"btn btn-success" %>
+
+</div>
