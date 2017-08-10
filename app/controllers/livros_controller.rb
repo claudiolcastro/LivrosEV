@@ -15,6 +15,7 @@ class LivrosController < ApplicationController
   def new
 
   	@livro = Livro.new
+    @estanteevs = Estanteev.all
 
   end
 
@@ -33,6 +34,7 @@ class LivrosController < ApplicationController
   def edit
 
   	@livro = Livro.find(params[:id])
+    @estanteevs = Estanteev.all
   	
   end
 
@@ -55,7 +57,7 @@ class LivrosController < ApplicationController
   private
    def livros_params
 
-   	 params.require(:livro).permit(:titulo, :autor, :sinopse, :estante, :capa)
+   	 params.require(:livro).permit(:titulo, :autor, :sinopse, :estante, :capa, :estanteev_id)
    	
    end
 

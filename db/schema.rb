@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170809024131) do
+ActiveRecord::Schema.define(version: 20170810010651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "estanteevs", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "livros", force: :cascade do |t|
     t.string "titulo", limit: 600
@@ -26,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170809024131) do
     t.string "capa_content_type"
     t.integer "capa_file_size"
     t.datetime "capa_updated_at"
+    t.integer "estanteev_id"
   end
 
 end

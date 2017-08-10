@@ -17,7 +17,7 @@
       <td><%= livro.autor %></td>
       <td><%= livro.sinopse %></td>
       <td><%= image_tag livro.capa.url(:thumb) %></td>
-      <td><%= livro.estante %></td>
+      <td><%= livro.estanteev.nome %></td>
       <td><%= link_to 'Editar', edit_livro_path(livro), class: "btn btn-warning" %></td>
       <td><%= link_to 'Remover', livro_path(livro), class: "btn btn-danger", method: :delete,
                                                        data:{confirm: "Tem certeza"} %></td>

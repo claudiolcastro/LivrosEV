@@ -1,0 +1,2 @@
+class Estanteev < ApplicationRecord
+end
